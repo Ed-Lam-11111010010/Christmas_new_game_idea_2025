@@ -3,9 +3,6 @@
 Automated Demo - Shows a sample gameplay session of Cyber City Survival
 This script simulates a player session to demonstrate the game mechanics.
 """
-import sys
-sys.path.insert(0, '/home/runner/work/Christmas_new_game_idea_2025/Christmas_new_game_idea_2025')
-
 from game.core.engine import GameEngine
 from game.city.buildings import BuildingType
 from game.ui.display import Display

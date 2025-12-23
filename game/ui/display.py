@@ -50,6 +50,21 @@ class Display:
     @staticmethod
     def show_grid(city):
         """Display the city grid."""
+        # Symbol mapping for buildings to ensure uniqueness
+        from game.city.buildings import BuildingType
+        symbol_map = {
+            BuildingType.RESIDENTIAL: 'R',
+            BuildingType.COMMERCIAL: 'C',
+            BuildingType.INDUSTRIAL: 'I',
+            BuildingType.POWER: 'E',  # E for Energy
+            BuildingType.WATER: 'W',
+            BuildingType.RESEARCH: 'L',  # L for Lab
+            BuildingType.DEFENSE: 'D',
+            BuildingType.PARK: 'K',  # K for parK
+            BuildingType.HOSPITAL: 'H',
+            BuildingType.DATACENTER: 'T',  # T for daTa
+        }
+        
         print("\n  City Grid:")
         print("  " + "  ".join([str(i) for i in range(city.grid_size)]))
         
@@ -58,8 +73,7 @@ class Display:
             for x in range(city.grid_size):
                 building = city.get_building_at(x, y)
                 if building:
-                    # Use first letter of building type
-                    symbol = building.type.name[0]
+                    symbol = symbol_map.get(building.type, '?')
                 else:
                     symbol = "·"
                 row += f"{symbol}  "
@@ -70,8 +84,9 @@ class Display:
     def show_buildings_legend():
         """Show what building symbols mean."""
         print("  Building Types:")
-        print("  R=Residential, C=Commercial, I=Industrial, P=Power, W=Water")
-        print("  R=Research, D=Defense/DataCenter, P=Park, H=Hospital")
+        print("  R=Residential  C=Commercial  I=Industrial  E=Energy/Power")
+        print("  W=Water        L=Research Lab  D=Defense    T=Data Center")
+        print("  K=Park         H=Hospital      ·=Empty")
         print()
         
     @staticmethod

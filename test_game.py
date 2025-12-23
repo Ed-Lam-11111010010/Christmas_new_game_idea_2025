@@ -2,9 +2,6 @@
 """
 Simple test to verify game mechanics work correctly
 """
-import sys
-sys.path.insert(0, '/home/runner/work/Christmas_new_game_idea_2025/Christmas_new_game_idea_2025')
-
 from game.core.engine import GameEngine
 from game.city.buildings import BuildingType
 
