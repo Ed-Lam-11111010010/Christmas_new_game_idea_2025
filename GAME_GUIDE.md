@@ -55,10 +55,13 @@ Where:
 - `R` = Residential
 - `C` = Commercial
 - `I` = Industrial
-- `P` = Power / Park
-- `W` = Water
-- `D` = Defense / DataCenter
-- `H` = Hospital
+- `E` = Energy/Power (Fusion Reactor)
+- `W` = Water (Recycling Plant)
+- `L` = Research Lab
+- `D` = Defense Grid
+- `T` = Data Center
+- `K` = Park (Cyber Park)
+- `H` = Hospital (Medical Center)
 
 ### Building Strategy Guide
 
