@@ -2,6 +2,7 @@
 """
 Simple test to verify game mechanics work correctly
 """
+import sys
 from game.core.engine import GameEngine
 from game.city.buildings import BuildingType
 
@@ -104,9 +105,14 @@ def test_game_over_conditions():
     engine = GameEngine()
     engine.new_game("Test City")
     
-    # Simulate bankruptcy
+    # Simulate bankruptcy - disable events to make test deterministic
+    old_chance = engine.event_manager.event_chance
+    engine.event_manager.event_chance = 0  # Disable events for this test
+    
     engine.city.money = -2000
     engine.process_turn()
+    
+    engine.event_manager.event_chance = old_chance
     
     assert engine.state.game_over, "Game should be over with bankruptcy"
     print(f"  Bankruptcy detected: {engine.state.message}")
@@ -114,6 +120,8 @@ def test_game_over_conditions():
     # Test population loss
     engine2 = GameEngine()
     engine2.new_game("Test City 2")
+    engine2.event_manager.event_chance = 0  # Disable events for this test
+    
     engine2.city.population = 0
     engine2.process_turn()
     

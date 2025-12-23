@@ -3,10 +3,11 @@
 Automated Demo - Shows a sample gameplay session of Cyber City Survival
 This script simulates a player session to demonstrate the game mechanics.
 """
+import sys
+import time
 from game.core.engine import GameEngine
 from game.city.buildings import BuildingType
 from game.ui.display import Display
-import time
 
 
 def demo_game():
