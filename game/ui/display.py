@@ -4,6 +4,8 @@ Display and UI system for the game
 import os
 from typing import Optional
 
+from game.city.buildings import BuildingType, Building
+
 
 class Display:
     """Handles displaying game information to the player."""
@@ -51,7 +53,6 @@ class Display:
     def show_grid(city):
         """Display the city grid."""
         # Symbol mapping for buildings to ensure uniqueness
-        from game.city.buildings import BuildingType
         symbol_map = {
             BuildingType.RESIDENTIAL: 'R',
             BuildingType.COMMERCIAL: 'C',
@@ -103,8 +104,6 @@ class Display:
     @staticmethod
     def show_build_menu():
         """Display building options."""
-        from game.city.buildings import BuildingType, Building
-        
         print("\nAvailable Buildings:")
         for i, building_type in enumerate(BuildingType, 1):
             cost = Building.BUILDING_COSTS.get(building_type, 0)

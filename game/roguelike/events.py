@@ -37,7 +37,12 @@ class Event:
         for key, value in self.effects.items():
             if hasattr(city, key):
                 old_value = getattr(city, key)
-                new_value = max(0, old_value + value)
+                # Allow tech_level to go negative temporarily (will be clamped by game logic)
+                # But prevent population and money from going below 0 here
+                if key in ('population', 'money', 'happiness', 'health', 'power', 'water', 'food'):
+                    new_value = max(0, old_value + value)
+                else:
+                    new_value = old_value + value
                 setattr(city, key, new_value)
                 
                 if value > 0:
