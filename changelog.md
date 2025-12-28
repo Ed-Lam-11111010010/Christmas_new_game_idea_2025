@@ -1,105 +1,97 @@
-📜 City Rogue - Changelog
+# 📜 City Rogue - Changelog
+
 All notable changes to the "City Rogue" project will be documented in this file.
 
-[v2.7] - 2025-12-27 (Current Stable Build)
-The "Scale & Polish" Update
-This version marks the transition from a simple grid game to a scalable city builder with a large scrolling map, complex economy, and polished UI.
+## [v3.3] - 2025-12-29 (Current Stable Build)
+### **The "Island & Integrity" Update**
+This version introduces a unified "Island" system to perfectly calculate connectivity and labor, ensuring no exploits are possible. It also hardens the milestone system against duplicate rewards.
 
-🚀 New Features
-Infinite-Style Map:
+### **🚀 New Features**
+* **Unified Island System:**
+    * **Island Logic:** The game now groups all connected tiles (Roads + Buildings) into "Islands".
+    * **Global Labor:** Efficiency is calculated based on the total Population vs Jobs *within that specific Island*.
+    * **Mixed Connectivity:** Buildings connect via roads OR by directly touching each other. As long as they are in the same "Island," they share resources.
+* **Smart Road Visuals:** Roads now only turn **White** (Active) if they belong to an Island that is actually functional (has residents or jobs). Empty road networks remain dark.
 
-30x30 Grid: Map size tripled (900 tiles total).
+### **🐛 Bug Fixes**
+* **Milestone Exploit Fix:** Milestone rewards (e.g., Max AP) are now applied exactly once at the moment of unlocking. They are saved directly to the save file and never re-calculated on load, preventing double-dipping.
+* **Labor Logic Fix:** Fixed issues where isolated buildings could sometimes claim 100% efficiency. Now, if an Island has 0 Population, all offices in it have 0% Efficiency.
 
-Camera Controls: Added Right-Click Drag to pan and Scroll Wheel to zoom (0.5x - 2.0x).
+---
 
-River Generation: Random rivers now flow through the map, acting as natural barriers.
+## [v3.2] - 2025-12-29
+### **The "Logic & Balance" Update**
+This version rewrites the core connectivity logic to fix labor exploits and introduces advanced event mechanics.
 
-Infrastructure & Economy:
+### **🚀 New Features**
+* **Advanced Connectivity System:**
+    * **Cluster Logic:** Buildings are now grouped into "Communities". Labor is calculated based on the total population and jobs within a connected group (roads + adjacency).
+    * **Direct Neighbors:** Buildings directly touching a House now count as connected, even without a road.
+* **New Events:**
+    * **Gridlock:** Temporary penalty (-1 Max Action Point).
+    * **Mandatory OT:** Trade-off event (-5 Happiness, +1 Max Action Point).
+* **Enhanced Logs:** Round summaries now appear in Cyan for better visibility, detailing exact income and energy changes.
 
-Road Connectivity: Buildings now require a valid road connection to function. Disconnected buildings show a "⚠ No Road" warning.
+### **🐛 Bug Fixes**
+* **Infinite Labor Fix:** Fixed a bug where isolated office clusters would generate 100% efficiency with 0 population.
+* **Milestone Fix:** Fixed an issue where milestones could be triggered multiple times in a single run.
+* **Road Visuals:** Roads now correctly light up (White) only when connected to an active building or network.
 
-Bridges (🌉): New building ($30) that can be built on water to connect islands.
+---
 
-Local Economy: Workers only commute to jobs within their connected road network.
+## [v3.1] - 2025-12-29
+### **The "Visuals & Milestones" Update**
+* **Visual Feedback:** Roads now visually indicate their state.
+    * **White (Active):** Connected to a functioning building or network.
+    * **Dark Gray (Inactive):** Road to nowhere.
+* **New Milestone:** **Metropolis** (Reach Population > 50). Rewards +1 Max Action Point permanently.
 
-Building Overhaul:
+## [v3.0] - 2025-12-28
+### **The "Achievement" Update**
+* **Milestone System:** Added a persistent achievement system that tracks across runs.
+    * **Wealthy City:** Reach >$500 Income to unlock +1 Max Action Point permanently.
+* **Labor Logic Update:** Buildings no longer strictly require roads if they are directly adjacent to a House.
+* **New Events:** Added "Red Tape" (AP Penalty) and "Streamlined" (AP Bonus).
 
-2x2 Buildings: Houses, Offices, Shops, Power Plants, and Parks now occupy a 2x2 tile space.
+## [v2.9] - 2025-12-28
+### **The "Action Economy" Update**
+* **Action Points (AP):** Players now have a limited number of actions (Stars) per turn.
+    * Buildings cost **1 AP**.
+    * Roads/Bridges cost **0 AP** (Free actions, money only).
+* **Clustering Rule:** Connectivity rules relaxed. Buildings can now connect to the network via *other buildings*, allowing for 2x2 or 3x3 city blocks.
 
-Roads & Bridges: Remain 1x1 for detailed layout control.
+## [v2.8] - 2025-12-28
+### **The "Data Driven" Update**
+* **External Data:** All game data (Buildings, Relics, Events) moved to `game_data.json`.
+    * Allows for easy modding and balance tweaks without touching code.
+* **Leaderboard Reset:** Score file updated to `v2` to support the new economy balance.
+* **Detailed Logs:** Added specific warnings for "Labor Shortage" and detailed event descriptions in the log.
 
-✨ UI & UX Improvements
-Restored Info Panel: Bottom-right panel displays building stats, costs, and active Event effects.
+---
 
-Predictive Tooltips: Hovering over the map calculates and displays specific adjacency bonuses (e.g., "Combo: +15💰") or warnings before building.
+## [v2.7] - 2025-12-27
+### **The "Scale & Polish" Update**
+* **Infinite-Style Map:** 30x30 Grid with Zoom and Pan controls.
+* **Infrastructure:** Added **Bridges** and required Road connectivity.
+* **UI Polish:** Restored Info Panel, fixed popup buttons, and centered icons.
 
-Pass Turn Button: Added a dedicated, safe-to-click button in the sidebar.
+## [v1.8] - 2025-12-26
+### **The "Roads & Rivers" Update**
+* **Roads:** Added buildable roads.
+* **Rivers:** Added random river generation.
+* **Audio:** Added sound effects.
 
-Game Over Screen: Added a proper Victory/Bankruptcy screen with "Play Again" and "Main Menu" options.
+## [v1.7] - 2025-12-25
+### **The "Persistence" Update**
+* **Save/Load:** JSON-based save system.
+* **Roguelike:** Permadeath (save deletion on loss).
+* **High Scores:** Local leaderboard.
 
-Icon Alignment: Building icons are now perfectly centered within their footprint (1x1 or 2x2).
+## [v1.0 - v1.3] - 2025-12-24
+### **The "Synergy" Update**
+* **Adjacency Bonuses:** Added combo effects (Shop+House, Office+Park).
+* **Relics:** Added 3 selectable starting relics.
 
-🐛 Bug Fixes
-Rendering: Fixed 2x2 buildings disappearing when scrolling or overlapping with terrain (implemented Two-Pass Rendering).
-
-Input: Fixed "Upgrade/Sell" popup buttons not being clickable.
-
-Input: Prioritized the "Pass Turn" button to prevent accidental map clicks.
-
-Stability: Fixed crashes related to TILE_SIZE variables and camera initialization.
-
-[v1.8] - 2025-12-26
-The "Roads & Rivers" Update
-New Building: Road (🛣️) ($10). Essential for connecting buildings.
-
-Rivers: Added basic random river generation (impassable terrain).
-
-Sound Effects: Added support for SFX (build.wav, money.wav, select.wav).
-
-[v1.7] - 2025-12-25
-The "Persistence" Update
-Save/Load System: Game now auto-saves after every turn. Added "Load Game" to Main Menu.
-
-Roguelike Elements: Save files are deleted upon death (Bankruptcy) or Victory.
-
-High Scores: Added a local leaderboard tracking the top 5 runs.
-
-Visuals: Replaced text labels with Emojis (💰, ⚡, 👥, 😊) for better readability.
-
-[v1.3] - 2025-12-24
-The "Synergy" Update
-Adjacency Bonuses:
-
-House ↔ Park: +5 Happiness.
-
-Shop ↔ House: +$15 Income per adjacent House.
-
-Office ↔ Park: +20% Income.
-
-NIMBY Mechanic: Houses lose happiness if placed near Power Plants.
-
-Bidirectional Logic: Tooltips now show both incoming effects (what neighbors do to you) and outgoing effects (what you do to neighbors).
-
-[v1.1] - 2025-12-24
-The "Relic" Update
-New Building: Shop (🏪). Low base income but high combo potential.
-
-Relic System: Players choose 1 of 3 "Mayoral Artifacts" at the start of a run (e.g., The Industrialist).
-
-[v0.9] - 2025-12-23
-The "Efficiency" Update
-Labor System: Buildings now require a workforce. Efficiency = Pop / Jobs.
-
-Understaffing: Buildings operate at reduced capacity if there aren't enough workers.
-
-Feedback: Added verbose event logs for blackouts, unrest, and bonuses.
-
-[v0.1 - v0.5] - 2025-12-20 to 2025-12-22
-The Prototype Phase
-Core Loop: Established the 10x10 grid, turn-based system, and basic resources (Money, Energy).
-
-Buildings: Implemented House, Office, Power Plant.
-
-Events: Added random events every 5 rounds (Inflation, Plague, Tech Boom).
-
-UI: Basic sidebar and grid rendering.
+## [v0.1] - 2025-12-20
+### **Prototype**
+* Basic 10x10 grid, 3 building types, and turn-based loop.
