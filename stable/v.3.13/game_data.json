@@ -1,0 +1,74 @@
+{
+  "buildings": {
+    "1": { "name": "House", "symbol": "🏠", "color": [50, 200, 50], "cost": 50, "ap_cost": 1, "energy": -2, "money": 10, "pop": 5, "work": 0, "happy": -2, "upgrade_to": 5, "upgrade_cost": 100, "needs_road": true, "size": [2, 2] },
+    "2": { "name": "Office", "symbol": "🏢", "color": [50, 100, 220], "cost": 100, "ap_cost": 1, "energy": -5, "money": 60, "pop": 0, "work": 5, "happy": -2, "upgrade_to": null, "needs_road": true, "size": [2, 2] },
+    "3": { "name": "Power", "symbol": "⚡", "color": [220, 220, 50], "cost": 150, "ap_cost": 1, "energy": 20, "money": -10, "pop": 0, "work": 2, "happy": -5, "upgrade_to": null, "needs_road": true, "size": [2, 2] },
+    "4": { "name": "Park", "symbol": "🌳", "color": [220, 100, 180], "cost": 80, "ap_cost": 1, "energy": 0, "money": 0, "pop": 0, "work": 0, "happy": 10, "upgrade_to": 12, "upgrade_cost": 120, "needs_road": false, "size": [2, 2] },
+    "5": { "name": "Apt.", "symbol": "🏙️", "color": [50, 200, 200], "cost": 0, "ap_cost": 1, "energy": -6, "money": 25, "pop": 15, "work": 0, "happy": -5, "upgrade_to": null, "needs_road": true, "size": [2, 2] },
+    "6": { "name": "Shop", "symbol": "🏪", "color": [220, 140, 30], "cost": 75, "ap_cost": 1, "energy": -3, "money": 5, "pop": 0, "work": 2, "happy": 2, "upgrade_to": 11, "upgrade_cost": 200, "needs_road": true, "size": [2, 2] },
+    "7": { "name": "Road", "symbol": "🛣️", "color": [220, 220, 220], "cost": 10, "ap_cost": 0, "energy": 0, "money": 0, "pop": 0, "work": 0, "happy": 0, "upgrade_to": null, "needs_road": false, "size": [1, 1] },
+    "8": { "name": "Bridge", "symbol": "🌉", "color": [139, 69, 19], "cost": 30, "ap_cost": 0, "energy": 0, "money": 0, "pop": 0, "work": 0, "happy": 0, "upgrade_to": null, "needs_road": false, "size": [1, 1] },
+    "9": { "name": "Garden", "symbol": "🌻", "color": [100, 255, 100], "cost": 40, "ap_cost": 1, "energy": 0, "money": 0, "pop": 0, "work": 0, "happy": 5, "upgrade_to": 13, "upgrade_cost": 80, "needs_road": false, "size": [1, 1] },
+    "10": { "name": "Factory", "symbol": "🏭", "color": [100, 100, 100], "cost": 200, "ap_cost": 1, "energy": -10, "money": 120, "pop": 0, "work": 10, "happy": -10, "upgrade_to": null, "needs_road": true, "size": [2, 2] },
+    "11": { "name": "Mall", "symbol": "🏬", "color": [255, 140, 0], "cost": 0, "ap_cost": 1, "energy": -10, "money": 40, "pop": 0, "work": 5, "happy": 5, "upgrade_to": null, "needs_road": true, "size": [2, 2] },
+    "12": { "name": "Enhanced Park", "symbol": "🌲", "color": [180, 80, 160], "cost": 0, "ap_cost": 1, "energy": 0, "money": 0, "pop": 0, "work": 1, "happy": 18, "upgrade_to": null, "needs_road": false, "size": [2, 2] },
+    "13": { "name": "Botanical Garden", "symbol": "🌺", "color": [80, 235, 80], "cost": 0, "ap_cost": 1, "energy": 0, "money": 5, "pop": 0, "work": 1, "happy": 10, "upgrade_to": null, "needs_road": false, "size": [1, 1] }
+  },
+  "relics": [
+    {"id": "industrialist", "name": "The Industrialist", "desc": "Power Plants cost $50. Pollution doubled.", "color": [200, 200, 200]},
+    {"id": "ecotopia", "name": "Ecotopia", "desc": "Parks give +20 Happy. Offices earn -20%.", "color": [50, 200, 50]},
+    {"id": "tycoon", "name": "Tycoon", "desc": "Start with $1000. All buildings cost +20%.", "color": [255, 215, 0]},
+    {"id": "planner", "name": "City Planner", "desc": "Start with $600 + Connected City Core.", "color": [50, 100, 220]}
+  ],
+  "events": [
+    {"id": "inflation", "name": "Hyper Inflation", "desc": "Costs +50%", "type": "cost", "val": 1.5},
+    {"id": "plague", "name": "Viral Outbreak", "desc": "Houses Pop -2", "type": "pop_mod", "val": -2},
+    {"id": "boom", "name": "Tech Boom", "desc": "Office $$ +20%", "type": "money_mult", "val": 1.2},
+    {"id": "grid_rot", "name": "Grid Decay", "desc": "Power -5 Energy", "type": "energy_flat", "val": -5},
+    {"id": "protest", "name": "Civil Unrest", "desc": "Happiness -10", "type": "happy_flat", "val": -10},
+    {"id": "red_tape", "name": "Red Tape", "desc": "Max Actions -1", "type": "action_mod", "val": -1},
+    {"id": "gridlock", "name": "Gridlock", "desc": "Traffic! Max Actions -1", "type": "action_mod", "val": -1},
+    {"id": "overtime", "name": "Mandatory OT", "desc": "Happy -5, Max Actions +1", "type": "mixed", "happy": -5, "action": 1},
+    {"id": "subsidies", "name": "Gov. Subsidies", "desc": "Costs -20%", "type": "cost", "val": 0.8},
+    {"id": "festival", "name": "Grand Festival", "desc": "Happiness +10", "type": "happy_flat", "val": 10}
+  ],
+  "milestones": [
+    {"id": "wealthy", "name": "Wealthy City", "desc": "Income > 900: +1 Max Action", "cond": "income", "val": 900, "reward": "action_max", "amt": 1},
+    {"id": "metropolis", "name": "Metropolis", "desc": "Pop > 85: +1 Max Action", "cond": "pop", "val": 85, "reward": "action_max", "amt": 1},
+    {"id": "utopia", "name": "Utopia", "desc": "Happy > 90: +1 Max Action", "cond": "happy", "val": 90, "reward": "action_max", "amt": 1}
+  ],
+  "neighbor_synergies": [
+    {
+      "id": "shop_residential",
+      "name": "Shop + Residential Synergy",
+      "desc": "Shops and Malls gain +15 income near Houses/Apartments",
+      "building_ids": [6, 11],
+      "neighbor_ids": [1, 5],
+      "bonus": {"money": 15}
+    },
+    {
+      "id": "park_residential",
+      "name": "Park + Residential Synergy",
+      "desc": "Parks gain +5 happiness near Houses/Apartments",
+      "building_ids": [4, 12],
+      "neighbor_ids": [1, 5],
+      "bonus": {"happy": 5}
+    },
+    {
+      "id": "office_commercial",
+      "name": "Office + Commercial Synergy",
+      "desc": "Offices gain +10 income near Shops/Malls",
+      "building_ids": [2],
+      "neighbor_ids": [6, 11],
+      "bonus": {"money": 10}
+    },
+    {
+      "id": "factory_power",
+      "name": "Factory + Power Synergy",
+      "desc": "Factories gain +20 income near Power Plants",
+      "building_ids": [10],
+      "neighbor_ids": [3],
+      "bonus": {"money": 20}
+    }
+  ]
+}
