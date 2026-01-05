@@ -6,7 +6,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # --- Configuration ---
 SCREEN_WIDTH = 950
-SCREEN_HEIGHT = 650
+SCREEN_HEIGHT = 640
 GRID_SIZE = 30
 TILE_SIZE = 40
 MAX_ROUNDS = 20
